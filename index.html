@@ -3,151 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ConcreteCalcus — Free Concrete Calculator: Yards, Bags &amp; Cost</title>
-<meta name="description" content="Free concrete landing page: estimate cubic yards, bags and cost for slabs, patios, driveways and footings in seconds — no signup.">
+<title>Steps &amp; Walls That Last — Concrete Stair and Retaining Wall Estimator</title>
+<meta name="description" content="Estimate concrete for garden steps and small retaining walls: step volume, wall volume, drainage, and the mistakes that make walls lean.">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;color:#222;line-height:1.6;background:#f7f7f5}
-  a{color:#d97b29}
-  .hero{background:linear-gradient(135deg,#1f2937 0%,#374151 100%);color:#fff;text-align:center;padding:64px 20px 64px}
-  .hero h1{font-size:2.4rem;line-height:1.2;margin-bottom:12px}
-  .hero p{font-size:1.15rem;opacity:.92;max-width:680px;margin:0 auto 20px}
-  .cta{display:inline-block;background:#ea580c;color:#fff!important;text-decoration:none;font-weight:800;padding:14px 28px;border-radius:10px;font-size:1.05rem}
-  .cta2{display:inline-block;color:#fff!important;border:2px solid #fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:10px;margin-left:10px}
-  .badges{margin-top:18px;font-size:.9rem;opacity:.9}
-  .badges span{display:inline-block;border:1px solid #6b7280;border-radius:999px;padding:4px 12px;margin:4px}
-  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
-  .calc-card{background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.08);padding:28px;margin:-30px auto 32px;position:relative}
-  .calc-card h2{margin-bottom:6px}
-  .calc-card .sub{color:#666;margin-bottom:18px}
-  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.hero h1{font-size:1.8rem}}
-  label{display:block;font-weight:600;margin-bottom:6px;font-size:.95rem}
-  input,select{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font-size:1rem}
-  button.calc-btn{display:block;width:100%;margin-top:18px;padding:14px;font-size:1.05rem;font-weight:700;color:#fff;background:#d97b29;border:none;border-radius:8px;cursor:pointer}
-  button.calc-btn:hover{background:#c06f24}
-  #result{display:none;margin-top:20px;background:#eef6ee;border:1px solid #bcd9bc;border-radius:8px;padding:18px}
-  #result.show{display:block}
-  #result .big{font-size:1.6rem;font-weight:800;color:#2c6e2c}
-  #result ul{margin:10px 0 0 20px}
-  h2.section{margin:10px 0 14px}
-  .tools{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 36px}
-  @media(max-width:560px){.tools{grid-template-columns:1fr}}
-  .tool{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;color:inherit;display:block;border-top:4px solid #d97b29}
-  .tool h3{color:#d97b29;margin-bottom:6px;font-size:1.05rem}
-  .tool p{color:#555;font-size:.93rem}
-  .guide{background:#fff;border-radius:10px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:32px}
-  .guide ol,.guide ul{margin:10px 0 10px 22px}
-  .guide li{margin-bottom:8px}
-  .faq{margin-bottom:40px}
-  .faq details{background:#fff;border-radius:8px;padding:14px 18px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  body{font-family:Verdana,Arial,sans-serif;color:#222;line-height:1.65;background:#fefce8}
+  a{color:#92400e}
+  .hero{background:#44403c;color:#fefce8;padding:60px 22px}
+  .inner{max-width:860px;margin:0 auto}
+  .hero h1{font-size:2.3rem;line-height:1.2;margin:12px 0}
+  .hero p{max-width:640px;opacity:.93}
+  .hero a.btn{display:inline-block;margin-top:20px;background:#facc15;color:#111!important;text-decoration:none;font-weight:800;padding:13px 24px;border-radius:8px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  .card{background:#fff;border-radius:12px;padding:26px;margin:-20px auto 30px;box-shadow:0 4px 16px rgba(0,0,0,.07)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.hero h1{font-size:1.85rem}}
+  label{font-weight:700;font-size:.92rem}
+  input,select{width:100%;padding:10px;margin-top:5px;border:1px solid #bbb;border-radius:8px;font-size:1rem}
+  button{width:100%;margin-top:16px;padding:13px;background:#92400e;color:#fff;border:none;border-radius:8px;font-weight:800;font-size:1rem;cursor:pointer}
+  #res{display:none;margin-top:16px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:16px}
+  #res.show{display:block}
+  #res .big{font-size:1.5rem;font-weight:800}
+  h2{margin:28px 0 12px}
+  .box{background:#fff;border-radius:10px;padding:22px;margin-bottom:28px}
+  .box li{margin:0 0 10px 20px}
+  .faq details{background:#fff;border-radius:8px;padding:14px 18px;margin-bottom:10px}
   .faq summary{font-weight:700;cursor:pointer}
   .faq p{margin-top:8px;color:#444}
-  .final{background:#1f2937;color:#fff;text-align:center;padding:44px 20px;margin:0 0 32px;border-radius:12px}
-  .final h2{margin-bottom:10px}
-  .final p{opacity:.9;margin-bottom:18px}
-  footer{text-align:center;color:#777;font-size:.9rem;padding:24px 20px 40px}
-  footer a{color:#d97b29}
-  .note{font-size:.9rem;color:#666}
+  .end{background:#44403c;color:#fefce8;text-align:center;padding:38px 20px;border-radius:12px;margin-bottom:30px}
+  .end a{color:#facc15}
+  footer{text-align:center;color:#666;font-size:.9rem;padding:20px 20px 40px}
 </style>
 </head>
 <body>
-
-<div class="hero">
-  <p><strong>30 FREE TOOLS &bull; NO SIGNUP &bull; INSTANT MATH</strong></p>
-  <h1>How Much Concrete Do You Need?</h1>
-  <p>Estimate cubic yards, bags and cost for your slab, patio, driveway or footing — in seconds, with verified ASTM formulas. No signup, no black-box math.</p>
-  <p><a class="cta" href="https://concretecalcus.com/">Use All 30 Free Calculators &rarr;</a> <a class="cta2" href="#calculator">Try the Calculator Below</a></p>
-  <p class="badges"><span>100% free</span><span>Zero signup</span><span>ASTM / ACI formulas</span><span>Ready-mix &amp; bag estimates</span></p>
-</div>
+<div class="hero"><div class="inner">
+  <p><strong>STEPS • RETAINING WALLS • DRAINAGE • LEVELS</strong></p>
+  <h1>Steps &amp; Walls That Last</h1>
+  <p>Garden steps and small retaining walls fail for boring reasons: a step that is too steep, a wall with nowhere for water to go, or a footing that was never dug. Size them properly first, and the concrete part becomes the easy part.</p>
+  <p><a class="btn" href="https://concretecalcus.com/">Open the Free Calculators &rarr;</a></p>
+</div></div>
 
 <div class="wrap">
-  <div class="calc-card" id="calculator">
-    <h2>Free Concrete Calculator — Start Here</h2>
-    <p class="sub">Enter your slab dimensions to estimate the concrete you need.</p>
+  <div class="card">
+    <h2>Concrete Stair Estimator</h2>
+    <p>For a straight flight of solid concrete steps. Enter the step count and dimensions, and the estimator gives you the solid volume, a waste buffer, and a bag equivalent. This is the full solid-step volume — hollow or framed steps use less.</p>
     <div class="grid">
-      <div><label for="length">Length (feet)</label><input type="number" id="length" min="0" step="0.1" value="10"></div>
-      <div><label for="width">Width (feet)</label><input type="number" id="width" min="0" step="0.1" value="12"></div>
-      <div><label for="depth">Depth (inches)</label><input type="number" id="depth" min="0" step="0.5" value="4"></div>
+      <div><label>Number of steps<input type="number" id="n" min="1" step="1" value="6"></label></div>
+      <div><label>Step width (ft)<input type="number" id="w" min="0" step="0.5" value="4"></label></div>
+      <div><label>Rise per step (in)<input type="number" id="r" min="0" step="0.5" value="7"></label></div>
+      <div><label>Run per step (in)<input type="number" id="t" min="0" step="0.5" value="11"></label></div>
     </div>
-    <label for="waste" style="margin-top:14px">Waste buffer
-      <select id="waste"><option value="0.05">5% — precise forms</option><option value="0.10" selected>10% — standard (recommended)</option><option value="0.15">15% — rough excavation</option></select>
-    </label>
-    <button class="calc-btn" onclick="calc()">Calculate Concrete</button>
-    <div id="result"></div>
-    <p class="note" style="margin-top:12px">For footings, post holes, walls, columns, stairs, rebar and full cost estimation, use the complete toolset at <a href="https://concretecalcus.com/">concretecalcus.com</a>.</p>
+    <button onclick="calc()">Estimate My Steps</button>
+    <div id="res"></div>
+    <p style="margin-top:12px;font-size:.92rem">For slabs, footings, columns, walls and a full cost breakdown, <a href="https://concretecalcus.com/">use the complete free toolset on ConcreteCalcus</a>.</p>
   </div>
 
-  <h2 class="section">What You Can Calculate — All Free</h2>
-  <div class="tools">
-    <a class="tool" href="https://concretecalcus.com/"><h3>Slabs &amp; Flatwork</h3><p>Rectangular slabs, driveways, patios, sidewalks, garage floors and monolithic pads.</p></a>
-    <a class="tool" href="https://concretecalcus.com/"><h3>Footings &amp; Post Holes</h3><p>Strip footings, spread pads, fence &amp; deck post holes and foundation trenches.</p></a>
-    <a class="tool" href="https://concretecalcus.com/"><h3>Walls, Columns &amp; Stairs</h3><p>Poured walls, retaining walls, round sonotube piers, grade beams and stairs.</p></a>
-    <a class="tool" href="https://concretecalcus.com/"><h3>Volume &amp; Trucks</h3><p>Cubic yards, cubic feet, cubic meters, unit conversion and 10-yd&sup3; truck dispatch.</p></a>
-    <a class="tool" href="https://concretecalcus.com/"><h3>Bags &amp; Mix Ratios</h3><p>40, 50, 60 and 80 lb bag counts, plus 1:2:3 and 1:2:4 site batching ratios.</p></a>
-    <a class="tool" href="https://concretecalcus.com/"><h3>Rebar, Block &amp; Cost</h3><p>ASTM rebar schedules, CMU block counts, mortar, gravel subbase and full project cost.</p></a>
+  <h2>Why Retaining Walls Lean</h2>
+  <div class="box"><ul>
+    <li><strong>No drainage:</strong> water trapped behind a wall builds pressure until the wall bows or topples. Gravel backfill and a drain pipe are not optional extras.</li>
+    <li><strong>Too thin at the base:</strong> a wall that is the same thickness top to bottom fights soil pressure with the wrong shape. A wider base and a proper footing change the leverage completely.</li>
+    <li><strong>Built on topsoil:</strong> like footings, walls need firm, undisturbed ground or compacted fill at the base — not garden soil that will settle.</li>
+    <li><strong>Too tall for its design:</strong> small garden walls under about 3 to 4 feet are a DIY-scale job; taller walls, surcharges from driveways above, and tiered walls need engineering.</li>
+  </ul></div>
+
+  <h2>Steps, Worked Through</h2>
+  <div class="box">
+    <p>Take 6 steps, 4 feet wide, with a 7-inch rise and an 11-inch run. Each step, treated as a solid block, is 4 ft wide &times; (7/12) ft high &times; (11/12) ft deep = 2.14 cubic feet. Six steps give 12.83 cubic feet, or 0.48 cubic yards neat. With a 10% buffer, plan for 0.52 yards — about 24 eighty-pound bags. That small total is exactly why steps are often a bag job, while the wall behind them may not be.</p>
+    <p>Comfort matters as much as volume: a rise around 7 inches and a run around 11 inches feels natural to climb. A rise over 8 inches or a run under 10 inches will feel steep every single day, no matter how perfect the concrete is.</p>
   </div>
 
-  <h2 class="section">Why This Calculator?</h2>
-  <div class="guide">
-    <ul>
-      <li><strong>Zero black-box math:</strong> every result shows the exact formula used.</li>
-      <li><strong>ASTM C94:</strong> 27 cubic feet per cubic yard, normal-weight concrete 145–150 lbs/cu ft.</li>
-      <li><strong>Waste protection:</strong> 5–15% buffer prevents short loads and cold joints. A 1/2-inch thickness error alone can cause an 11% shortfall.</li>
-      <li><strong>Ready-mix vs. bags:</strong> over ~1.5–2 yd&sup3; (60–90 eighty-pound bags), a truck is usually cheaper and faster. Under ~4 yd&sup3;, expect a short-load fee.</li>
-    </ul>
+  <h2>Retaining Wall Volume, in One Line</h2>
+  <div class="box">
+    <p>For a straight wall, volume is length &times; height &times; thickness, all in feet, divided by 27 for cubic yards. A 20-foot wall, 3 feet high and 12 inches thick is 20 &times; 3 &times; 1 = 60 cubic feet, or 2.22 yards neat — before footing, drainage gravel, and waste. Always price the footing separately; it is often as much concrete as the wall itself.</p>
   </div>
 
-  <h2 class="section">How the Math Works</h2>
-  <div class="guide">
-    <ol>
-      <li><strong>Convert thickness to feet:</strong> divide inches by 12 (4" = 0.333 ft).</li>
-      <li><strong>Volume in cubic feet:</strong> Length &times; Width &times; Thickness.</li>
-      <li><strong>Convert to cubic yards:</strong> divide cubic feet by 27.</li>
-      <li><strong>Add waste</strong> for uneven subgrade, spills and form spread.</li>
-    </ol>
-    <p><strong>Worked example:</strong> a 10 &times; 12 ft patio at 4" thick needs 10 &times; 12 &times; 0.333 &divide; 27 = <strong>1.48 cubic yards</strong> — order about <strong>1.63 yd&sup3;</strong> with 10% waste. In bags, that's roughly 74 eighty-pound bags.</p>
-    <p><strong>Bag yields (ASTM):</strong> 80 lb = 0.60 cu ft, 60 lb = 0.45 cu ft, 50 lb = 0.375 cu ft, 40 lb = 0.30 cu ft.</p>
-    <p class="note"><strong>Safety:</strong> for load-bearing foundations, retaining walls over 4 feet, or structural columns, consult a licensed structural engineer and local building codes.</p>
-  </div>
-
-  <h2 class="section">FAQ</h2>
+  <h2>Steps &amp; Walls Questions</h2>
   <div class="faq">
-    <details><summary>How many bags of concrete are in a cubic yard?</summary><p>About 45 eighty-pound bags, 60 sixty-pound bags, or 90 forty-pound bags per cubic yard (using ASTM yields, rounded up).</p></details>
-    <details><summary>How thick should a concrete slab be?</summary><p>4 inches for patios and walkways, 4–5 inches for passenger-car driveways, 5–6 inches with rebar for heavy-truck driveways and garage slabs.</p></details>
-    <details><summary>How much extra concrete waste should I order?</summary><p>10% for standard slabs, driveways and footings; 15% for rough, hand-dug post holes or irregular excavations.</p></details>
-    <details><summary>When should I order a ready-mix truck instead of bags?</summary><p>Above ~1.5–2 cubic yards, a truck is usually cheaper per yard, faster, and avoids cold joints from hand-mixing 60–90+ bags.</p></details>
+    <details><summary>How do I keep steps from cracking at the nosing?</summary><p>Keep the nosing thickness generous, cure properly, avoid de-icing salts in the first winter, and do not add water to the mix on site to make finishing easier — it weakens exactly the edge that takes the most wear.</p></details>
+    <details><summary>Do I need a footing under a small retaining wall?</summary><p>Yes, in most cases: a compacted gravel base at minimum, and a concrete footing for walls over a couple of feet, on soft ground, or carrying a load above. A wall sitting directly on topsoil will settle unevenly.</p></details>
+    <details><summary>What drainage does a retaining wall need?</summary><p>Free-draining gravel behind the wall, a perforated drain pipe at the base discharging to daylight, and weep holes or gaps so water never builds up pressure behind the face.</p></details>
+    <details><summary>Can I pour steps in sections?</summary><p>Yes, with construction joints planned in advance and reinforcement continuity where the design requires it. Pouring one step at a time without a plan leaves weak, visible joints in the middle of the flight.</p></details>
   </div>
 
-  <div class="final">
-    <h2>Ready to Order With Confidence?</h2>
-    <p>Get exact yards, bags, rebar, block and cost for your whole project — free, in seconds.</p>
-    <p><a class="cta" href="https://concretecalcus.com/">Go to ConcreteCalcus &rarr;</a></p>
+  <div class="end">
+    <h2>Build the levels right, then pour with confidence</h2>
+    <p>Run the stair estimator above, then get slabs, footings, rebar and costs at <a href="https://concretecalcus.com/">ConcreteCalcus</a> — free, no signup.</p>
+    <p><a href="https://concretecalcus.com/">Go to ConcreteCalcus &rarr;</a></p>
   </div>
 </div>
 
-<footer>
-  Free tools by <a href="https://concretecalcus.com/">ConcreteCalcus</a> — concrete calculators for contractors, DIYers and homeowners.
-</footer>
+<footer>Free planning tools by <a href="https://concretecalcus.com/">ConcreteCalcus</a> — for homeowners, DIYers and small crews.</footer>
 
 <script>
 function calc(){
-  var l=parseFloat(document.getElementById('length').value)||0;
-  var w=parseFloat(document.getElementById('width').value)||0;
-  var d=(parseFloat(document.getElementById('depth').value)||0)/12;
-  var waste=parseFloat(document.getElementById('waste').value);
-  var box=document.getElementById('result');
-  if(!(l>0&&w>0&&d>0)){box.className='show';box.innerHTML='<p>Please enter positive numbers for all dimensions.</p>';return;}
-  var yards=(l*w*d)/27, order=yards*(1+waste);
-  var bags80=Math.ceil(order*27/0.60), bags60=Math.ceil(order*27/0.45);
-  var cost=Math.round(order*150);
-  box.className='show';
-  box.innerHTML='<div class="big">'+yards.toFixed(2)+' cubic yards</div><ul>'
-    +'<li>With '+Math.round(waste*100)+'% waste: <strong>'+order.toFixed(2)+' yd&sup3;</strong> (order this)</li>'
-    +'<li>80-lb bags: <strong>'+bags80+'</strong> &nbsp;|&nbsp; 60-lb bags: <strong>'+bags60+'</strong></li>'
-    +'<li>Estimated ready-mix cost at $150/yd&sup3;: <strong>$'+cost+'</strong> (estimate only — check local prices)</li>'
-    +'<li>10-yd&sup3; trucks: <strong>'+Math.ceil(order/10)+'</strong></li></ul>'
-    +'<p style="margin-top:10px">Need footings, walls, rebar or a full cost breakdown? <a href="https://concretecalcus.com/">Try all 30 tools on ConcreteCalcus</a>.</p>';
+  var n=parseInt(document.getElementById('n').value)||0;
+  var w=parseFloat(document.getElementById('w').value)||0;
+  var rise=(parseFloat(document.getElementById('r').value)||0)/12;
+  var run=(parseFloat(document.getElementById('t').value)||0)/12;
+  var r=document.getElementById('res');
+  if(!(n>0&&w>0&&rise>0&&run>0)){r.className='show';r.innerHTML='<p>Please enter positive numbers for steps, width, rise and run.</p>';return;}
+  var per=w*rise*run, total=per*n, neat=total/27, order=neat*1.10;
+  r.className='show';
+  r.innerHTML='<div class="big">'+neat.toFixed(2)+' yd&sup3; neat — plan for '+order.toFixed(2)+' yd&sup3;</div><ul>'
+    +'<li>Per step: <strong>'+per.toFixed(2)+' cu ft</strong></li>'
+    +'<li>80-lb bags equivalent: <strong>'+Math.ceil(order*27/0.60)+'</strong></li>'
+    +'<li>For a small flight, bags are usually practical; confirm step comfort (rise ~7 in, run ~11 in) before pouring</li></ul>'
+    +'<p style="margin-top:10px">More shapes and a full cost breakdown? <a href="https://concretecalcus.com/">See all free tools on ConcreteCalcus</a>.</p>';
 }
 </script>
 </body>
